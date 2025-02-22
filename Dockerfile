@@ -38,6 +38,11 @@ RUN cd "pjproject-${VERSION_PJSIP}" \
 
 RUN apk del .build4pjsip
 
+# Copy the entrypoint script into the container
 COPY entrypoint.sh /entrypoint.sh
 
-CMD ["entrypoint.sh"]
+# Give execute permission to the script
+RUN chmod +x /entrypoint.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
