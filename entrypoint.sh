@@ -15,7 +15,7 @@ CMD="python /opt/sip2mqtt/sip2mqtt.py"
 [ -n "$SIP_PASSWORD" ] && CMD="$CMD --sip_password $SIP_PASSWORD"
 [ -n "$SIP_DISPLAY" ] && CMD="$CMD --sip_display $SIP_DISPLAY"
 [ -n "$LOG_LEVEL" ] && CMD="$CMD --log_level $LOG_LEVEL"
-[ -n "$VERBOSITY" ] && CMD="$CMD --$VERBOSITY"
+[ -n "$VERBOSITY" ] && CMD="$CMD -$VERBOSITY"
  
 # Execute the command
 exec $CMD
