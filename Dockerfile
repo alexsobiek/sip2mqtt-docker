@@ -15,7 +15,9 @@ RUN rm -r /root/.cache \
   && apk add --no-cache --virtual .build4pjsip alpine-sdk \
   && apk add --no-cache libsrtp-dev python2-dev openssl-dev linux-headers
 
-#  RUN curl -L -s -S https://raw.githubusercontent.com/MartyTremblay/sip2mqtt/master/sip2mqtt.py -o /opt/sip2mqtt/sip2mqtt.py 
+RUN mkdir -p /opt/sip2mqtt \
+  && curl -L -s -S https://raw.githubusercontent.com/MartyTremblay/sip2mqtt/master/sip2mqtt.py -o /opt/sip2mqtt/sip2mqtt.py
+
 RUN curl -LO -s -S "https://github.com/pjsip/pjproject/archive/refs/tags/${VERSION_PJSIP}.zip"
 RUN unzip "${VERSION_PJSIP}.zip"
 RUN cd "pjproject-${VERSION_PJSIP}" \
